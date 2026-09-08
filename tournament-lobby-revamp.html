@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tournament Lobby Revamp — Ashish Srivastava</title>
+<meta name="description" content="Rebuilding the tournament lobby on segment-level sorting and a rules engine on the admin, and testing it three ways so the personalisation could be measured separately from the card redesign.">
+<meta property="og:title" content="Tournament Lobby Revamp — Ashish Srivastava">
+<meta property="og:description" content="Rebuilding the tournament lobby on segment-level sorting and a rules engine on the admin, and testing it three ways so the personalisation could be measured separately from the card redesign.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="name" href="index.html">Ashish Srivastava</a>
+    <ul>
+      <li><a href="work.html" aria-current="page">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav><header class="band study">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Ashish Srivastava</a><span class="sep">/</span><a href="work.html">Case studies</a><span class="sep">/</span><span class="here">Tournament Lobby Revamp</span></p>
+    <p class="eyebrow"><span>Discovery</span><span>Flutter Entertainment (Junglee Games)</span><span>Senior Product Manager, Consumer Growth and Platform</span><span>2024 to 2025</span></p>
+    <h1>Tournament Lobby Revamp</h1>
+    <p class="standfirst">Rebuilding the tournament lobby on segment-level sorting and a rules engine on the admin, and testing it three ways so the personalisation could be measured separately from the card redesign.</p>
+  </div>
+</header><main class="article" id="main"><div class="wrap"><div class="prose">
+<nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#the-problem">The problem</a></li><li><a href="#what-i-decided-and-what-i-turned-down">What I decided, and what I turned down</a></li><li><a href="#what-happened">What happened</a></li><li><a href="#the-bundles-tested-separately">The bundles, tested separately</a></li><li><a href="#what-i-would-change">What I would change</a></li></ol></nav>
+<h2 id="the-problem">The problem</h2>
+<p>Every player saw the same tournament order: registered first, then highlighted, then open for registration by start time. The four groups using that list wanted different things. Power players had history and clear preferences. Casual players were unclear on cards, prize pools and jargon. New players did not understand tournaments at all. Old players were heavy ring-game players with no tournament affinity.</p>
+<p>One order, four requirements. The measures were join rate, conversion and ARPU.</p>
+<figure><img loading="lazy" decoding="async" alt="Lobby wireframes showing four segment layouts side by side" src="segment-wireframes.jpg"><figcaption>The lobby specified per segment. A new player gets a learn-how-to-play prompt where a series player gets a leaderboard opt-in.</figcaption></figure>
+<h2 id="what-i-decided-and-what-i-turned-down">What I decided, and what I turned down</h2>
+<p><strong>Cohort ranking, not per-player.</strong> Per-player was the more sophisticated option and would have degraded worst for players with no tournament history, which was the group most in need of help. Four segments were also legible to the people who had to configure and debug them.</p>
+<p><strong>Merchandising logic in a rules engine on the admin, not in the client.</strong> Tournament inventory turns over constantly and campaign calendars move faster than release cycles. The alternative shipped faster once and slower every time after.</p>
+<p><strong>Featured placements stay manual.</strong> A guaranteed-prize series launch is a commercial commitment with a date attached, not something a rule infers.</p>
+<p><strong>Three test paths, not two.</strong> Full build, card redesign alone, and control. The second path existed so the featured card and rules engine could be measured separately, which meant the experiment could show half my own build was not carrying the result.</p>
+<figure><img loading="lazy" decoding="async" alt="Control and the two test paths side by side on device" src="ab-variants.jpg"><figcaption>Left to right: control, the full build, and the card redesign without featured cards.</figcaption></figure>
+<figure class="diagram"><svg viewBox="0 0 620 190" role="img" aria-label="Three test paths: the full build with featured cards, bundles and segment rules; the card redesign and join flow without featured cards; and the existing lobby as control. Both test paths returned the same ARPU result." xmlns="http://www.w3.org/2000/svg">
+<style>
+.bx{fill:#E9E3D8;stroke:#C9BFAF}
+.lbl{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:#3A342C}
+.hd{font-family:"IBM Plex Sans",sans-serif;font-size:11px;fill:#6E655A}
+.res{font-family:Newsreader,Georgia,serif;font-size:15px;fill:#1E1A16}
+.tie{stroke:#1B4D5A;fill:none}
+</style>
+<rect class="bx" x="1" y="24" width="250" height="42" rx="2"/>
+<text class="hd" x="14" y="18">Path 1</text>
+<text class="lbl" x="14" y="50">Card redesign + join flow + featured cards, bundles, rules</text>
+<rect class="bx" x="1" y="86" width="250" height="42" rx="2"/>
+<text class="hd" x="14" y="80">Path 2</text>
+<text class="lbl" x="14" y="112">Card redesign + join flow only</text>
+<rect class="bx" x="1" y="148" width="250" height="34" rx="2"/>
+<text class="hd" x="14" y="142">Control</text>
+<text class="lbl" x="14" y="170">Existing lobby</text>
+<path class="tie" d="M251 45 H300 V107 M251 107 H300"/>
+<path class="tie" d="M300 76 H330"/>
+<text class="res" x="340" y="70">Same ARPU result,</text>
+<text class="res" x="340" y="90">about seven percent</text>
+<text class="hd" x="340" y="112">The personalisation layer added nothing</text>
+<text class="hd" x="340" y="128">the redesign had not already delivered.</text>
+</svg><figcaption>Adding a second test path meant the featured cards, bundles and rules engine could be measured on their own, and the experiment could return a result that made half the build redundant.</figcaption></figure>
+<h2 id="what-happened">What happened</h2>
+<p><strong>Both test paths lifted ARPU by about seven percent and were indistinguishable.</strong> The bundles, rules engine and segment configuration added nothing that the card redesign had not already delivered.</p>
+<p>The full build did change behaviour: tab and filter clicks fell over five points against control, against one point for the card-only path. Players stopped browsing. But average tournaments played fell in both paths while wager per tournament rose, and ring-game rake fell in the full build while rising in the card-only one.</p>
+<p>The smallest change was among the largest: the join flow conditional, showing cash when the player holds no valid ticket, lifted ticket purchase success seventeen points.</p>
+<p>Two results went the wrong way. Withdraw success fell materially in both paths while withdraw attempts rose, and lobby clicks fell slightly in both.</p>
+<h2 id="the-bundles-tested-separately">The bundles, tested separately</h2>
+<figure class="phone"><img loading="lazy" decoding="async" alt="The shipped bundle strip: Quick Start, Highrollers and Win 10X" src="bundles-live.jpg"><figcaption>Quick Start drew the least attention of the three and produced the most completed registrations.</figcaption></figure>
+<p>Win 10X drew the most clicks and converted roughly one registration in twenty. Quick Start drew fewer and converted more than half. Highrollers drew fewest, and of those who clicked join inside it about one in ten completed — an entry fee problem, not a discovery one.</p><figure class="diagram"><svg viewBox="0 0 620 250" role="img" aria-label="Two charts comparing three tournament bundles. Win 10X drew the most attention and converted the least; Quick Start drew the least attention and converted the most." xmlns="http://www.w3.org/2000/svg"><style>.l{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:#1E1A16}.s{font-family:"IBM Plex Sans",sans-serif;font-size:10.5px;fill:#6E655A}.n{font-family:Newsreader,Georgia,serif;font-size:15px;fill:#1E1A16}.bx{fill:#E9E3D8;stroke:#C9BFAF}.ar{stroke:#C9BFAF;fill:none}</style><text class="l" x="0" y="12" font-weight="500">Share of bundle attention</text><g transform="translate(0,24)"><text class="l" x="0" y="11">Win 10X</text><rect x="110" y="0" width="275.6" height="14" fill="#C9BFAF"/><text class="s" x="392.6" y="11">most</text><text class="l" x="0" y="37">Quick Start</text><rect x="110" y="26" width="236.2" height="14" fill="#C9BFAF"/><text class="s" x="353.2" y="37"></text><text class="l" x="0" y="63">Highrollers</text><rect x="110" y="52" width="171.6" height="14" fill="#C9BFAF"/><text class="s" x="288.6" y="63">least</text></g><text class="l" x="0" y="130" font-weight="500">Clicks that became registrations</text><g transform="translate(0,142)"><text class="l" x="0" y="11">Quick Start</text><rect x="110" y="0" width="272.5" height="14" fill="#1B4D5A"/><text class="s" x="389.5" y="11">over half</text><text class="l" x="0" y="37">Win 10X</text><rect x="110" y="26" width="26.0" height="14" fill="#C9BFAF"/><text class="s" x="143.0" y="37">about 1 in 20</text><text class="l" x="0" y="63">Highrollers</text><rect x="110" y="52" width="8.0" height="14" fill="#C9BFAF"/><text class="s" x="125.0" y="63">about 1 in 60</text></g></svg><figcaption>The bundle players clicked most produced the least play. Attention and completion pointed in opposite directions, and Highrollers failed at the join step rather than the discovery step.</figcaption></figure>
+
+<p>ARPU rose about two and a half percent, but only around one percent of registrations came through the bundle tab, so the mechanism does not account for the headline. Cash join clicks rose and free join clicks fell by almost the same amount, because no free tournaments had been mapped into any bundle. Nobody decided to shift the mix toward paid play; it followed from the mapping.</p>
+<h2 id="what-i-would-change">What I would change</h2>
+<p><strong>Ship the card redesign first.</strong> It would have set the baseline before engineering committed to a rules engine, and the bundle decision would have been taken knowing what it had to beat.</p>
+<p><strong>Measure what a player stopped doing.</strong> Every success metric pointed at tournaments. Ring rake sat only on the guardrail list, and it was the metric that revealed the substitution.</p>
+<p><strong>Rank on what a player can enter, not only what they prefer.</strong> Highrollers failed at the join step.</p>
+<p><strong>Review what gets mapped.</strong> Tooling that lets operations change merchandising without a release also lets them change it without a discussion.</p>
+<nav class="pager" aria-label="More case studies"><div class="prev"></div><div class="next"><span class="k">Next</span><a href="tournament-recommendations.html">Tournament Recommendations</a></div><div class="all"><a href="work.html">All case studies</a></div></nav>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="fname">Ashish Srivastava</p>
+      <div>Senior Product Manager<br>Consumer growth, monetisation and platform</div>
+      <div class="small">&copy; 2026 Ashish Srivastava</div>
+    </div>
+    <div>
+      <div><a href="work.html">Work</a></div>
+      <div><a href="mailto:ashish.sahai14@gmail.com">ashish.sahai14@gmail.com</a></div>
+      <div><a href="https://linkedin.com/in/ashishsrivastava">LinkedIn</a></div>
+      <div><a href="https://otakudrift.com">Otakudrift</a></div>
+    </div>
+  </div>
+</footer><script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rise');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){e.classList.add('in');}); return;
+  }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
