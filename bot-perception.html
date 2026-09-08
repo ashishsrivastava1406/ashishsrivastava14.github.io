@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bot Perception — Ashish Srivastava</title>
+<meta name="description" content="Players believed they were facing bots. They were facing registered players who never took their seat. Rebuilding tournament matchmaking so active players are grouped together, rather than reassuring ">
+<meta property="og:title" content="Bot Perception — Ashish Srivastava">
+<meta property="og:description" content="Players believed they were facing bots. They were facing registered players who never took their seat. Rebuilding tournament matchmaking so active players are grouped together, rather than reassuring ">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="name" href="index.html">Ashish Srivastava</a>
+    <ul>
+      <li><a href="index.html#work" aria-current="page">Work</a></li>
+      <li><a href="index.html#thinking">Thinking</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="https://linkedin.com/in/ashishsrivastava">LinkedIn</a></li>
+      <li><a href="mailto:ashish.sahai14@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</nav><header class="band study">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Ashish Srivastava</a><span class="sep">/</span><a href="index.html#work">Case studies</a><span class="sep">/</span><span class="here">Bot Perception</span></p>
+    <p class="eyebrow"><span>Gameplay</span><span>Flutter Entertainment (Junglee Games)</span><span>Senior Product Manager, Consumer Growth and Platform</span><span>2024 to 2025</span></p>
+    <h1>Bot Perception</h1>
+    <p class="standfirst">Players believed they were facing bots. They were facing registered players who never took their seat. Rebuilding tournament matchmaking so active players are grouped together, rather than reassuring anyone that the opponents were real.</p>
+  </div>
+</header><main class="article" id="main"><div class="wrap"><div class="prose">
+<nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#the-problem">The problem</a></li><li><a href="#what-i-decided-and-what-i-turned-down">What I decided, and what I turned down</a></li><li><a href="#what-happened">What happened</a></li><li><a href="#what-i-learned">What I learned</a></li></ol></nav>
+<h2 id="the-problem">The problem</h2>
+<p>When a tournament started, every registered player was seated whether or not they had turned up. Players who never took their seat stayed at the table as dead weight, and active players had to sit through the full turn timer and bonus time for each of them, on every hand, until their chips ran out.</p>
+<p>Players concluded they were playing against bots. They were not. They were playing against registered humans who had not arrived.</p>
+<p>The stated objective was gameplay experience, engagement and retention. The specification was explicit that there was no direct revenue attribution, and that any commercial effect would be indirect.</p>
+<figure class="diagram"><svg viewBox="0 0 620 210" role="img" aria-label="The chain from reported problem to actual cause to intervention: players reported bots, investigation showed registered players who never took a seat, and the fix was matchmaking rather than reassurance." xmlns="http://www.w3.org/2000/svg"><style>.l{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:#1E1A16}.s{font-family:"IBM Plex Sans",sans-serif;font-size:10.5px;fill:#6E655A}.n{font-family:Newsreader,Georgia,serif;font-size:15px;fill:#1E1A16}.bx{fill:#E9E3D8;stroke:#C9BFAF}.ar{stroke:#C9BFAF;fill:none}</style><rect class="bx" x="0" y="16" width="300" height="50" rx="2"/><text class="l" x="11" y="37">Reported</text><text class="s" x="11" y="54">“I am playing against bots”</text><rect class="bx" x="0" y="86" width="300" height="50" rx="2"/><text class="l" x="11" y="107">Investigated</text><text class="s" x="11" y="124">Who is actually seated at the table</text><rect class="bx" x="0" y="156" width="300" height="50" rx="2"/><text class="l" x="11" y="177">Actual cause</text><text class="s" x="11" y="194">Registered players who never arrived</text><path class="ar" d="M150 66 V86"/><path class="ar" d="M150 136 V156"/><path class="ar" d="M300 181 H340"/><rect class="bx" x="340" y="140" width="280" height="66" rx="2"/><text class="l" x="351" y="161">Intervention</text><text class="s" x="351" y="178">Group active players together;</text><text class="s" x="351" y="193">decay the stacks of those absent</text><rect class="bx" x="340" y="16" width="280" height="100" rx="2"/><text class="s" x="352" y="38">Away instances, round one</text><text class="n" x="352" y="72">21.4%</text><text class="l" x="418" y="72">→</text><text class="n" x="446" y="72" fill="#1B4D5A">6.1%</text><text class="s" x="352" y="96">Two-day test, one tournament, non-depositors</text></svg><figcaption>A complaint reports an experience rather than diagnosing it. Both fixes aimed at the belief, real photographs and reassurance animations, would have left the experience unchanged.</figcaption></figure>
+<h2 id="what-i-decided-and-what-i-turned-down">What I decided, and what I turned down</h2>
+<p><strong>Treat it as a matchmaking problem rather than a perception problem.</strong> Two perception fixes were on the table. Replacing avatars with real player photographs would have reassured players who uploaded one and concentrated suspicion on everyone who did not. Reassurance animations would have told players the opponents were real without making the wait any shorter. Neither addresses the reason the belief formed, which was that the game genuinely felt dead.</p>
+<p><strong>Regroup players dynamically rather than skip inactive turns.</strong> Skipping turns was the cheap option and needed no architectural change. It fails at the edges: with one or two active players at a table, games end almost immediately, and a player arriving late can never enter. Dynamic table creation groups active players together during the game start timer and isolates the inactive ones. It was an XL backend project requiring infrastructure scale-up, and it was the right cost.</p>
+<p><strong>Decay chips rather than eliminate late arrivals.</strong> Absent players keep a full stack for a configurable window, then lose chips on a schedule until they drop out. A player who arrives late is seated with a diminished but genuine chance rather than locked out, and the reduced stack is shown on the lobby card and explained at the table.</p>
+<p><strong>Leave partially active players alone.</strong> Players who played a hand and then disconnected were kept out of scope, because only about 2.5% of disconnected players never return. Building separate handling for them would have added complexity for a group that mostly comes back on its own.</p>
+<h2 id="what-happened">What happened</h2>
+<p>Two-day test on a single tournament, run on free and free-cash players who had never deposited.</p>
+<p><strong>The primary measure moved decisively.</strong> Away instances in round one fell from 21.4% to 6.1%, a drop of over 15 points.</p>
+<p><strong>The revenue effect the specification said would not be direct, arrived indirectly.</strong> Rebuy rake per user rose 28.9% and total tournament rake per user 16%. Grouping active players against each other produces real eliminations, and eliminated players rebuy.</p>
+<p><strong>Retention improved consistently rather than dramatically.</strong> Tournament-to-tournament, tournament-to-ring and tournament-to-platform retention each rose by roughly a point across D1 to D5. Against an unexposed baseline of ring-only players over the same period, D7 retention was 1.13 points higher for exposed players.</p>
+<p><strong>The most useful finding was in the funnel.</strong> Take Seat clicks rose 3.37 points overall — and the entire gain came from players taking their seat <em>after</em> the tournament had started, up 3.25 points, while take-up at the start was flat. Fixing the table did not make anyone punctual. It made arriving late worth doing.</p>
+<h2 id="what-i-learned">What I learned</h2>
+<p><strong>The belief was accurate about the symptom and wrong about the cause.</strong> Players said bots; the problem was absent humans. A perception complaint is a report of an experience, not a diagnosis of it, and the two fixes that addressed the belief directly would both have left the experience unchanged.</p>
+<p><strong>Fixing an experience can pay for itself without being sold as a revenue project.</strong> The specification was honest that there was no direct attribution, which is what made the rebuy result credible when it appeared rather than looking like a number found after the fact.</p>
+<p><strong>The result is narrow.</strong> Two days, one tournament, non-depositors only. It is enough to justify the build and not enough to claim the effect holds for paying players in larger fields, where zombie rates and prize pool mechanics both differ.</p>
+<nav class="pager" aria-label="More case studies"><div class="prev"><span class="k">Previous</span><a href="tournament-ingress.html">Tournament Ingress</a></div><div class="next"><span class="k">Next</span><a href="reactivation-on-live-signals.html">Reactivation on Live Signals</a></div><div class="all"><a href="index.html#work">All case studies</a></div></nav>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="fname">Ashish Srivastava</p>
+      <div>Senior Product Manager<br>Consumer growth, monetisation and platform</div>
+      <div class="small">&copy; 2026 Ashish Srivastava</div>
+    </div>
+    <div>
+      <div><a href="index.html#work">Case studies</a></div>
+      <div><a href="mailto:ashish.sahai14@gmail.com">ashish.sahai14@gmail.com</a></div>
+      <div><a href="https://linkedin.com/in/ashishsrivastava">LinkedIn</a></div>
+      <div><a href="https://otakudrift.com">Otakudrift</a></div>
+    </div>
+  </div>
+</footer><script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rise');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){e.classList.add('in');}); return;
+  }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>

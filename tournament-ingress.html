@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tournament Ingress — Ashish Srivastava</title>
+<meta name="description" content="Building entry points into tournaments from the surfaces ring-game players already used, including mid-game, and separating the problem of getting players to register from the problem of getting them ">
+<meta property="og:title" content="Tournament Ingress — Ashish Srivastava">
+<meta property="og:description" content="Building entry points into tournaments from the surfaces ring-game players already used, including mid-game, and separating the problem of getting players to register from the problem of getting them ">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="name" href="index.html">Ashish Srivastava</a>
+    <ul>
+      <li><a href="index.html#work" aria-current="page">Work</a></li>
+      <li><a href="index.html#thinking">Thinking</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="https://linkedin.com/in/ashishsrivastava">LinkedIn</a></li>
+      <li><a href="mailto:ashish.sahai14@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</nav><header class="band study">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Ashish Srivastava</a><span class="sep">/</span><a href="index.html#work">Case studies</a><span class="sep">/</span><span class="here">Tournament Ingress</span></p>
+    <p class="eyebrow"><span>Acquisition</span><span>Flutter Entertainment (Junglee Games)</span><span>Senior Product Manager, Consumer Growth and Platform</span><span>2024</span></p>
+    <h1>Tournament Ingress</h1>
+    <p class="standfirst">Building entry points into tournaments from the surfaces ring-game players already used, including mid-game, and separating the problem of getting players to register from the problem of getting them to turn up.</p>
+  </div>
+</header><main class="article" id="main"><div class="wrap"><div class="prose">
+<nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#the-problem">The problem</a></li><li><a href="#what-i-decided-and-what-i-turned-down">What I decided, and what I turned down</a></li><li><a href="#what-happened">What happened</a></li><li><a href="#what-i-learned">What I learned</a></li></ol></nav>
+<h2 id="the-problem">The problem</h2>
+<p>Players who play both tournaments and ring games generate more net gaming revenue than any other cohort. Growing that cohort had been attempted by scaling tournament supply and running ticket drops.</p>
+<p>Every one of those levers lives inside the tournament lobby, so they only reach players who already go there. A ring-game player who had never entered a tournament had no reason to visit it.</p>
+<p>The objective was to raise the share of players doing both, by building entry points from the surfaces those players already used.</p>
+<h2 id="what-i-decided-and-what-i-turned-down">What I decided, and what I turned down</h2>
+<p><strong>Move the acquisition surface out of the tournament lobby.</strong> Suggested tournaments appear in the cash and practice lobbies and on the game tables. The player is pitched while doing what they came to do rather than being expected to navigate to a product they have never used.</p>
+<figure class="phone"><img loading="lazy" decoding="async" alt="Practice lobby free roll tab with a new-to-tournaments explainer card" src="practice-lobby-ftue.jpg"><figcaption>A tournament tab inside the practice lobby with a first-time explainer. The entry point sits where a non-tournament player already is.</figcaption></figure>
+<p><strong>Pitch mid-game, and constrain it heavily.</strong> The game table widget is the most intrusive placement in the specification, and most of the surrounding rules exist to limit it.</p>
+<figure><img loading="lazy" decoding="async" alt="Cash game table with the collapsed tournament widget on the right edge" src="game-table-widget.jpg"><figcaption>The tournament widget on a cash game table, collapsed and stacked with the other push surfaces.</figcaption></figure>
+<p><strong>Suppress any tournament the player cannot afford.</strong> If the entry fee exceeds the wallet balance the widget does not show it, so a player is never pulled out of a live game into an add-cash flow.</p>
+<p><strong>Cap attention deliberately.</strong> One tournament at a time. Three widgets maximum on the table. The refer-a-friend and suggestion widgets are never open together, and the responsible-gaming and tournament widgets close each other. Nudges compete with each other before they compete with anything else.</p>
+<p><strong>Make the nudge self-limiting.</strong> Ignored across a configurable number of sessions, it disables itself for that player for a set number of days.</p>
+<p><strong>Treat registration and participation as separate problems.</strong> Registering and turning up are different behaviours with different failure modes.</p>
+<figure><img loading="lazy" decoding="async" alt="Take Seat prompt across the top of a game table" src="take-seat.jpg"><figcaption>The Take Seat prompt when a registered tournament begins. It collapses if ignored, and is suppressed during declaration, results and the player's own turn.</figcaption></figure>
+<p>Auto Take Seat redirects a registered player to their seat as the tournament starts. The exclusions matter as much as the mechanism: nothing fires during finish, declaration, the result screen, or the player's own turn. Interrupting someone mid-hand would trade a tournament entry for a worse experience in the game they are already playing.</p>
+<h2 id="what-happened">What happened</h2>
+<p><strong>The commissioning metric moved.</strong> The share of players playing both tournaments and ring games rose from about 35% to about 40%, where the lobby work had left participation flat.</p>
+<p><strong>The ring product was not cannibalised.</strong> Ring rake per user and ring games played rose in all three value tiers. This is the result the restraints were built for, and the reason the intrusive placement was defensible.</p>
+<p><strong>The participation gain came from the middle tier</strong>, where tournament rake per user rose about 18%, tournaments played about 5%, and deposits about 5%. The top tier was flat on volume and up over 7% on tournament rake — more expensive tournaments, not more of them. The lowest tier played more and produced almost no revenue movement.</p>
+<p><strong>Margin diverged by tier.</strong> For the top tier, net gaming revenue rose faster including tournament cost than excluding it, so the incremental entries carried less subsidy. For the other two the relationship reversed.</p>
+<p><strong>One result went the other way.</strong> Average active days on tournaments fell for the top two tiers while platform active days rose.</p>
+<figure class="diagram"><svg viewBox="0 0 620 150" role="img" aria-label="The increase in players taking their seat came entirely from those seating after the tournament had started; take-up at the start was flat." xmlns="http://www.w3.org/2000/svg"><style>.l{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:#1E1A16}.s{font-family:"IBM Plex Sans",sans-serif;font-size:10.5px;fill:#6E655A}.n{font-family:Newsreader,Georgia,serif;font-size:15px;fill:#1E1A16}.bx{fill:#E9E3D8;stroke:#C9BFAF}.ar{stroke:#C9BFAF;fill:none}</style><text class="l" x="0" y="12" font-weight="500">Change in Take Seat, against control</text><g transform="translate(0,26)"><text class="l" x="0" y="11">At tournament start</text><rect x="160" y="0" width="8.7" height="14" fill="#C9BFAF"/><text class="s" x="175.7" y="11">flat</text><text class="l" x="0" y="41">After it had started</text><rect x="160" y="30" width="234.7" height="14" fill="#1B4D5A"/><text class="s" x="401.7" y="41">+3.25 points</text></g><line x1="160" y1="18" x2="160" y2="98" stroke="#C9BFAF"/><text class="s" x="0" y="126">Fixing the table did not make anyone punctual. It made arriving late worth doing.</text></svg><figcaption>Take Seat clicks rose 3.37 points overall, and the whole gain sat after the tournament start.</figcaption></figure>
+<h2 id="what-i-learned">What I learned</h2>
+<p><strong>Ingress converts within a session, not across days.</strong> More tournaments across fewer days. The pitch reaches a player already in the app; it does not give them a reason to return tomorrow. Reading this project as a frequency win would have been wrong.</p>
+<p><strong>The restraints were the product.</strong> Ring rake rose in every tier, which is the evidence that the exclusions held. The same feature without them would have bought tournament entries with the revenue that pays for everything.</p>
+<p><strong>Growth in entries is not uniformly profitable.</strong> A single participation target would have hidden that entries from some cohorts are close to break-even after subsidy.</p>
+<nav class="pager" aria-label="More case studies"><div class="prev"><span class="k">Previous</span><a href="tournament-recommendations.html">Tournament Recommendations</a></div><div class="next"><span class="k">Next</span><a href="bot-perception.html">Bot Perception</a></div><div class="all"><a href="index.html#work">All case studies</a></div></nav>
+</div></div></main>
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="fname">Ashish Srivastava</p>
+      <div>Senior Product Manager<br>Consumer growth, monetisation and platform</div>
+      <div class="small">&copy; 2026 Ashish Srivastava</div>
+    </div>
+    <div>
+      <div><a href="index.html#work">Case studies</a></div>
+      <div><a href="mailto:ashish.sahai14@gmail.com">ashish.sahai14@gmail.com</a></div>
+      <div><a href="https://linkedin.com/in/ashishsrivastava">LinkedIn</a></div>
+      <div><a href="https://otakudrift.com">Otakudrift</a></div>
+    </div>
+  </div>
+</footer><script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rise');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){e.classList.add('in');}); return;
+  }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.05});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
